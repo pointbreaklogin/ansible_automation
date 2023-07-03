@@ -1,0 +1,16 @@
+#Ansible playbook that updates Alma Linux servers and provides an output after the update
+---
+- name: Update Alma Linux Servers
+  hosts: hosts
+  become: true
+  tasks:
+    - name: Update packages
+      package:
+        name: '*'
+        state: latest
+      register: update_result
+
+    - name: Show update completion message
+      debug:
+        msg: "Update completed on {{ inventory_hostname }}"
+

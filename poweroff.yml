@@ -1,0 +1,14 @@
+#ansible playbook to poweroff lab06 machines
+---
+- name: Power off lab01 machines
+  hosts: hosts
+  become: true
+  
+  tasks:
+    - name: Delay before power off
+      pause:
+        seconds: 2
+
+    - name: Power off
+      command: shutdown -P now
+
