@@ -12,6 +12,9 @@ nocolour="\033[00m"
 
 #finding current user
 cur_user=$(echo $SUDO_USER)
+#finding current user home directory
+home_dir="$(eval echo ~$username)"
+
 #Check if you are root or not
 if [ "$EUID" -ne 0 ]; 
 then
@@ -89,9 +92,11 @@ ssh-keyscan -H 172.16.50.20 >> /root/.ssh/known_hosts
 ip_address=$(hostname -I | awk '{print $1}')
 
 #Create a file with the IP address
-echo "hostname = $(hostname)  :  ip = $ip_address" > "/home/$cur_user/$(hostname).txt"
+echo "hostname = $(hostname)  :  ip = $ip_address" > "/home/$home_dir/$(hostname).txt"
 
 #Use sshpass to provide the password non-interactively and copy the file
-sshpass -p "asd123." scp "/home/$cur_user/$(hostname).txt" synnefo@172.16.50.20:/home/synnefo/
+sshpass -p "asd123." scp "/home/$home_dir/$(hostname).txt" synnefo@172.16.50.20:/home/synnefo/
 
+echo ""
 echo -e  "$success Execution completed $nocolour ";
+echo ""
