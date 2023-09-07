@@ -3,7 +3,7 @@
 Welcome to the Ansible Repository, your go-to resource for automating and managing infrastructure using Ansible. 
 This repository contains a collection of Ansible playbooks, roles, scripts, and configurations that enable you to automate various aspects of your IT infrastructure, streamline deployments, and simplify administration tasks.
 
-## sine qua non
+## requirements
 
 Before using the playbooks and roles in this repository, ensure that you have the following prerequisites:
 
