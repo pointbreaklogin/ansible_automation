@@ -70,7 +70,7 @@ else
 fi
 
 #Set root password non-interactively
-echo "root:asd123." | chpasswd
+echo "root:root" | chpasswd
 
 #Update sshd_config to allow root login
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
